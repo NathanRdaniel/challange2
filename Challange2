@@ -1,0 +1,34 @@
+import java.util.Scanner;
+public class Challange2 {
+    public static void main(String args[]) {
+        //           ----------Ints------------
+        int i = 0;
+        int asciiValue;
+         //          ----------Scanner------------
+        Scanner scan = new Scanner(System.in);
+         //          ----------Inputs------------
+        
+        System.out.println("Enter Code");
+        String code = scan.next();
+        
+        System.out.println("Enter Shift");
+        int shift = scan.nextInt();
+       
+    //                ----------code------------
+        String str = code;
+        char chr = str.charAt(i);
+        for( i = 0; i <= str.length() -1; i++)
+        {
+             chr = str.charAt(i);
+             asciiValue = (int)chr; 
+              asciiValue = asciiValue + shift;
+              if(asciiValue > 122){ // checks to see if asciiValue will overflow
+                 int turn =  asciiValue - 122; // Subtracts asciiValue from max letter
+                 asciiValue = 97 + turn; // remander + min to make asciiValue a letter again
+              }
+               chr = (char)asciiValue;
+             System.out.print(chr);
+        }
+     
+    }
+}
