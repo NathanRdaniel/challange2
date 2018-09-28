@@ -1,0 +1,78 @@
+import java.util.Scanner;
+public class Challange3 {
+    public static void main(String args[]) {
+
+        //int i = 0;
+        
+       // int asciiValue;
+
+        Scanner scan = new Scanner(System.in);
+                                                // Enters User Data
+        System.out.println("Enter message");
+                                                //User Data
+        String message = scan.next();
+        
+        System.out.println("Enter code word");
+        
+        String code = scan.next();
+        System.out.println("-----------------------------------");
+  
+        
+        int codewordctr = 0;
+        
+        //for Loop for the message.
+        for (int y=0; y <= message.length() -1; y++) //turkeyeatssoup
+        {
+                                                
+            if (codewordctr == code.length()) {     //reloops code
+                codewordctr = 0;
+            }
+            
+            char msgchr = message.charAt(y);        //location of message char
+            
+            char codechr = code.charAt(codewordctr); //location of code char
+
+        
+            int  codeasciiValue = (int)codechr;     // code char to int
+                
+            int shift = codeasciiValue - 96;        // making it shift
+              
+            int asciiValue = (int)msgchr;           // message char to ints
+            
+             asciiValue =  asciiValue + shift;      // adds shift to message
+              
+            if(asciiValue > 122){                   // overflow
+                int turn =  asciiValue - 122;       //<><><><><><><>
+                asciiValue = 97 + turn;             //<><><><><><><>
+               }
+               
+            msgchr = (char)asciiValue;              // message converteed back to char
+            System.out.print(msgchr);               // prinrs message
+            
+            codewordctr++;                          
+            
+            
+        }
+        
+        System.out.println("");
+        System.out.println("done.");
+ /* 
+
+W     W      W        
+W        W  W     W    
+              '.  W      
+  .-""-._     \ \.--|  
+ /       "-..__) .-'   
+|     _         /      
+\'-.__,   .__.,'       
+ `'----'._\--'      
+VVVVVVVVVVVVVVVVVVVVV
+
+   */
+    
+  }
+}
+
+
+
+
